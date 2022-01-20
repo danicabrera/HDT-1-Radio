@@ -43,7 +43,7 @@ public interface IRadio {
 	void saveInAM(int slot, int freq);
 	
 	/***
-	 * Devuelve la emisora que fue guardad en el determinado slot
+	 * Devuelve la emisora que fue guardada en el determinado slot
 	 * @param slot el slot en donde se guardo la emisora
 	 * @return la frequencia de la emisora guardada
 	 */

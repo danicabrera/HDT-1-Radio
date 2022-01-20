@@ -25,7 +25,10 @@ public class Radio implements IRadio{
 
             EstadoRadio = true;
             System.out.println("radio encendida");
-
+        }
+        else {
+            EstadoRadio = false;
+            System.out.println("radio apagada");
         }
         
     }
@@ -53,25 +56,37 @@ public class Radio implements IRadio{
 
     @Override
     public void saveInAM(int slot, int freq) {
-        RadiosAM.put(slot, freq);
-        System.out.println("Se ha guardado la frecuencia: "+freq+ " en el espacio: "+slot);
+        if (RadiosAM.containsKey(slot) ==  false){
+            RadiosAM.put(slot, freq);
+            System.out.println("Se ha guardado la frecuencia: "+freq+ " en el espacio: "+slot);
+        }
+        else {
+                System.out.println("Ya asignaste una frecuencia a este boton: "+getSavedFreqAM(slot));
+        }
     }
 
     @Override
     public int getSavedFreqAM(int slot) {
         int frecuencia = RadiosAM.get(slot);
+        FrecuenciaAM = frecuencia;
         return frecuencia;
     }
 
     @Override
     public void saveInFM(int slot, double freq) {
-        RadiosFM.put(slot, freq);
-        System.out.println("Se ha guardado la frecuencia: "+freq+ " en el espacio: " + slot);        
+        if (RadiosFM.containsKey(slot) == false){
+            RadiosFM.put(slot, freq);
+            System.out.println("Se ha guardado la frecuencia: "+freq+ " en el espacio: " + slot);        
+        }
+        else{
+            System.out.println("Ya asignaste una frecuencia con este boton: "+ getSavedFreqFM(slot));
+        }
     }
 
     @Override
     public double getSavedFreqFM(int slot) {
         double frecuencia = RadiosFM.get(slot);
+        FrecuenciaFM = frecuencia;
         return frecuencia;
     }
 
