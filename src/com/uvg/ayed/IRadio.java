@@ -57,7 +57,7 @@ public interface IRadio {
 	void saveInFM(int slot, double freq);
 	
 	/***
-	 * Devuelve la emisora que fue guardad en el determinado slot
+	 * Devuelve la emisora que fue guardada en el determinado slot
 	 * @param slot el slot en donde se guardo la emisora
 	 * @return la frequencia de la emisora guardada
 	 */
