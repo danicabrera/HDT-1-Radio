@@ -1,9 +1,12 @@
 package com.uvg.ayed;
 import java.util.HashMap;
 
+import javax.print.event.PrintEvent;
+import javax.sound.sampled.SourceDataLine;
+
 public class Radio implements IRadio{
 
-    private String Estacion;
+    private int Estacion = 0;
     private boolean EstadoRadio = false;
     private int FrecuenciaAM;
     private double FrecuenciaFM;
@@ -12,26 +15,40 @@ public class Radio implements IRadio{
 
     @Override
     public boolean getStatus() {
-        // TODO Auto-generated method stub
-        return false;
+        return EstadoRadio;
     }
 
     @Override
     public void switchButton() {
-        // TODO Auto-generated method stub
+       
+        if(EstadoRadio == false){
+
+            EstadoRadio = true;
+            System.out.println("radio encendida");
+
+        }
         
     }
 
     @Override
     public void changeMode() {
-        // TODO Auto-generated method stub
+        
+        if(Estacion == 0){
+
+            Estacion = 1; 
+
+        }else{
+
+            Estacion = 0;
+
+        }
+        System.out.println("se ha cambiado de estación");
         
     }
 
     @Override
     public int getActualMode() {
-        // TODO Auto-generated method stub
-        return 0;
+        return Estacion;
     }
 
     @Override
