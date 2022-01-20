@@ -1,6 +1,15 @@
 package com.uvg.ayed;
 
+import java.util.HashMap;
+
 public class Radio implements IRadio{
+
+    private String Estacion;
+    private boolean EstadoRadio;
+    private int FrecuenciaAM;
+    private double FrecuenciaFM;
+    private HashMap<Integer, Integer> RadiosAM = new HashMap<Integer, Integer>();
+    private HashMap<Integer, Double> RadiosFM = new HashMap<Integer, Double>();
 
     @Override
     public boolean getStatus() {
@@ -28,7 +37,6 @@ public class Radio implements IRadio{
 
     @Override
     public void saveInAM(int slot, int freq) {
-        // TODO Auto-generated method stub
         
     }
 
