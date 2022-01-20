@@ -1,11 +1,10 @@
 package com.uvg.ayed;
-
 import java.util.HashMap;
 
 public class Radio implements IRadio{
 
     private String Estacion;
-    private boolean EstadoRadio;
+    private boolean EstadoRadio = false;
     private int FrecuenciaAM;
     private double FrecuenciaFM;
     private HashMap<Integer, Integer> RadiosAM = new HashMap<Integer, Integer>();
@@ -37,37 +36,36 @@ public class Radio implements IRadio{
 
     @Override
     public void saveInAM(int slot, int freq) {
-        
+        RadiosAM.put(slot, freq);
+        System.out.println("Se ha guardado la frecuencia: "+freq+ " en el espacio: "+slot);
     }
 
     @Override
     public int getSavedFreqAM(int slot) {
-        // TODO Auto-generated method stub
-        return 0;
+        int frecuencia = RadiosAM.get(slot);
+        return frecuencia;
     }
 
     @Override
     public void saveInFM(int slot, double freq) {
-        // TODO Auto-generated method stub
-        
+        RadiosFM.put(slot, freq);
+        System.out.println("Se ha guardado la frecuencia: "+freq+ " en el espacio: " + slot);        
     }
 
     @Override
     public double getSavedFreqFM(int slot) {
-        // TODO Auto-generated method stub
-        return 0;
+        double frecuencia = RadiosFM.get(slot);
+        return frecuencia;
     }
 
     @Override
     public int getActualFreqAM() {
-        // TODO Auto-generated method stub
-        return 0;
+        return FrecuenciaAM;
     }
 
     @Override
     public double getActualFreqFM() {
-        // TODO Auto-generated method stub
-        return 0;
+        return FrecuenciaFM;
     }
 
     @Override
