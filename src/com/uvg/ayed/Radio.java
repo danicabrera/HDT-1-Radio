@@ -99,14 +99,22 @@ public class Radio implements IRadio{
 
     @Override
     public void moveForward() {
-        // TODO Auto-generated method stub
-        
+        if(Estacion == 0) {
+        	FrecuenciaAM = FrecuenciaAM + 100
+        }else {
+        	FrecuenciaFM = FrecuenciaFM + 0.2
+        }
+ 
     }
 
     @Override
     public void moveBackward() {
-        // TODO Auto-generated method stub
-        
+        if(Estacion == 0) {
+        	FrecuenciaAM = FrecuenciaAM - 100
+        }else {
+        	FrecuenciaFM = FrecuenciaFM - 0.2
+        }
+ 
     }
 
     @Override
