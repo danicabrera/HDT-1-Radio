@@ -1,9 +1,6 @@
 package com.uvg.ayed;
 import java.util.HashMap;
 
-import javax.print.event.PrintEvent;
-import javax.sound.sampled.SourceDataLine;
-
 public class Radio implements IRadio{
 
     private int Estacion = 0;
