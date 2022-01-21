@@ -100,9 +100,9 @@ public class Radio implements IRadio{
     @Override
     public void moveForward() {
         if(Estacion == 0) {
-        	FrecuenciaAM = FrecuenciaAM + 100
+        	FrecuenciaAM = FrecuenciaAM + 100;
         }else {
-        	FrecuenciaFM = FrecuenciaFM + 0.2
+        	FrecuenciaFM = FrecuenciaFM + 0.2;
         }
  
     }
@@ -110,16 +110,46 @@ public class Radio implements IRadio{
     @Override
     public void moveBackward() {
         if(Estacion == 0) {
-        	FrecuenciaAM = FrecuenciaAM - 100
+        	FrecuenciaAM = FrecuenciaAM - 100;
         }else {
-        	FrecuenciaFM = FrecuenciaFM - 0.2
+        	FrecuenciaFM = FrecuenciaFM - 0.2;
         }
  
     }
 
     @Override
     public void seek() {
-        // TODO Auto-generated method stub
+    	boolean busqueda = true
+    	while(busqueda == true) {
+    		if(Estacion == 0) {
+            	int frecuencia = FrecuenciaAM;
+            	int valorBajo = 1166400;
+            	for(int i = 0; i<= 11; i++) {
+            		valor = RadiosAM.get(i);
+            		int diferencia = valor - frecuencia;
+            		int cuadrado = diferencia * diferencia;
+            		if(cuadrado < valorBajo) {
+            			valorBajo = cuadrado;
+            			FrecuenciaAM = valor;
+            		}
+            	}
+            	busqueda = false;
+            	
+            }else {
+            	double Frecuencia = FrecuenciaFM;
+    			double valorBajo = 400.0;
+            	for(int i = 0; i<= 11; i++) {
+            		valor = RadiosFM.get(i);
+            		int diferencia = valor - Frecuencia;
+            		int cuadrado = diferencia * diferencia;
+            		if(cuadrado < valorBajo) {
+            			valorBajo = cuadrado;
+            			FrecuenciaFM = valor;
+            		}
+            	}
+            	busqueda = false;
+            }
+    	}
         
     }
     
