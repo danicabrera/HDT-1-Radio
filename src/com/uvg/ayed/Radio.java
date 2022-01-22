@@ -1,7 +1,7 @@
 package com.uvg.ayed;
 import java.util.HashMap;
 
-public class Radio implements IRadio{
+public class Radio implements IRadio {
 
     private int Estacion = 0;
     private boolean EstadoRadio = false;
@@ -119,13 +119,13 @@ public class Radio implements IRadio{
 
     @Override
     public void seek() {
-    	boolean busqueda = true
+    	boolean busqueda = true;
     	while(busqueda == true) {
     		if(Estacion == 0) {
             	int frecuencia = FrecuenciaAM;
             	int valorBajo = 1166400;
             	for(int i = 0; i<= 11; i++) {
-            		valor = RadiosAM.get(i);
+            		int valor = RadiosAM.get(i);
             		int diferencia = valor - frecuencia;
             		int cuadrado = diferencia * diferencia;
             		if(cuadrado < valorBajo) {
@@ -139,9 +139,9 @@ public class Radio implements IRadio{
             	double Frecuencia = FrecuenciaFM;
     			double valorBajo = 400.0;
             	for(int i = 0; i<= 11; i++) {
-            		valor = RadiosFM.get(i);
-            		int diferencia = valor - Frecuencia;
-            		int cuadrado = diferencia * diferencia;
+            		double valor = RadiosFM.get(i);
+            		double diferencia = valor - Frecuencia;
+            		double cuadrado = diferencia * diferencia;
             		if(cuadrado < valorBajo) {
             			valorBajo = cuadrado;
             			FrecuenciaFM = valor;
