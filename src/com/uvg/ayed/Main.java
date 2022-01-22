@@ -57,7 +57,7 @@ public class Main{
             //Esta opcion avanda el dial de las emisoras
             else if (opcion  == 3){
                 if (radio.getStatus() == true){
-                    
+                    radio.moveForward();
                 }
                 else {
                     System.out.println("Encienda la radio primero");

@@ -5,8 +5,8 @@ public class Radio implements IRadio {
 
     private int Estacion = 0;
     private boolean EstadoRadio = false;
-    private int FrecuenciaAM;
-    private double FrecuenciaFM;
+    private int FrecuenciaAM = 530;
+    private double FrecuenciaFM = 87.9;
     private HashMap<Integer, Integer> RadiosAM = new HashMap<Integer, Integer>();
     private HashMap<Integer, Double> RadiosFM = new HashMap<Integer, Double>();
 
@@ -100,9 +100,20 @@ public class Radio implements IRadio {
     @Override
     public void moveForward() {
         if(Estacion == 0) {
-        	FrecuenciaAM = FrecuenciaAM + 100;
+        	if (FrecuenciaAM == 1610) {
+        		FrecuenciaAM = 530;
+        	}
+        	else  {
+        		FrecuenciaAM = FrecuenciaAM + 10;
+        	}
+        	
         }else {
-        	FrecuenciaFM = FrecuenciaFM + 0.2;
+        	if (FrecuenciaFM == 107.9) {
+        		FrecuenciaFM = 89.7;
+        	}
+        	else {
+        		FrecuenciaFM = FrecuenciaFM + 0.2;
+        	}
         }
  
     }
