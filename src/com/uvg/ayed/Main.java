@@ -1,12 +1,12 @@
 package com.uvg.ayed;
 import java.util.Scanner;
 
-/**
- * @author Esteban Donis
- * En este metodo es donde se realizan toda la interaccion con el usuario
- */
-
 public class Main{
+
+    /**
+     * Este metodo es donde se realizan toda la interaccion con el usuario
+     * @param args
+     */
     public static void main(String[] args) {
         Radio radio = new Radio();
         Main mein = new Main();
@@ -152,6 +152,9 @@ public class Main{
         }
     }
 
+    /**
+     * Despliega las opciones del menu
+     */
     public void opciones() {
         System.out.println("1. Prender el radio");
         System.out.println("2. Cambia de AM a FM a AM");
