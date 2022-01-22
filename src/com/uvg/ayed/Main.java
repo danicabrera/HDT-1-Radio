@@ -1,15 +1,20 @@
 package com.uvg.ayed;
 import java.util.Scanner;
 
+/**
+ * @author Esteban Donis
+ * En este metodo es donde se realizan toda la interaccion con el usuario
+ */
+
 public class Main{
     public static void main(String[] args) {
         Radio radio = new Radio();
         Main mein = new Main();
         Scanner scan = new Scanner(System.in);
         int opcion = 0;
-
-        while (opcion != 7){
-            if (radio.getStatus() == true){
+        
+        while (opcion != 7){//Evaluamos que el usuario no quiera salir del menu
+            if (radio.getStatus() == true){//Verifica que la radio este prendida para imprimir el estado del radio y la emisora
                 if (radio.getActualMode() == 0){
                     System.out.println("Estacion: AM");
                 }
@@ -24,9 +29,9 @@ public class Main{
                 }
             }    
             
-            mein.opciones();
+            mein.opciones();//Desplegamos las opciones
             boolean paso = false;
-            while (paso == false){
+            while (paso == false){//Verificamos que el usuario ingrese un valor disponible
                 try {
                     String stringOpcion = scan.nextLine();
                     opcion = Integer.parseInt(stringOpcion);
@@ -38,7 +43,7 @@ public class Main{
             //Esta opcion prende el radio
             if (opcion == 1){
                 boolean estado = radio.getStatus();
-                if (estado == true){
+                if (estado == true){//Verificamos que el radio este encendido
                     System.out.println("La radio ya esta encendida");
                 }
                 else {
@@ -79,9 +84,9 @@ public class Main{
                         }
                     }
 
-                    if (boton > 0 && boton < 13){
+                    if (boton > 0 && boton < 13){//Verificamos que el valor ingresado se encuentra entre los 12 botones
                         if (radio.getActualMode() == 0){
-                            radio.saveInAM(boton, radio.getActualFreqAM());
+                            radio.saveInAM(boton, radio.getActualFreqAM());//Guardamos la emisora con el boton
                         }
                         else if (radio.getActualMode() == 1){
                             radio.saveInFM(boton, radio.getActualFreqFM());
