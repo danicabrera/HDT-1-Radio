@@ -138,7 +138,7 @@ class RadioTest {
 		radio.saveInFM(1, 88.1);
 		double num = radio.getSavedFreqFM(1);
 		radio.moveBackward();
-		assertEquals(num - 0.2, radio.getActualFreqFM());
+		assertEquals(num - 0.4, radio.getActualFreqFM());
 	}
 
 }
